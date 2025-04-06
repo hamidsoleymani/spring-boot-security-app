@@ -20,7 +20,7 @@ public class SecurityConfig {
                         .anyRequest().authenticated()              // All other endpoints require authentication
                 )
                 .formLogin(form -> form
-                        .loginPage("/login") // Custom login page (optional)
+                       // .loginPage("/login") // Custom login page (optional)
                         .permitAll()
                 )
                 .logout(logout -> logout.permitAll());

@@ -1,10 +1,14 @@
-CREATE SCHEMA IF NOT EXISTS security_app_schema;
+--CREATE SCHEMA IF NOT EXISTS security_app_schema;
 
 CREATE TABLE users
 (
-    username VARCHAR(50)  NOT NULL PRIMARY KEY,
-    password VARCHAR(100) NOT NULL,
-    enabled  BOOLEAN      NOT NULL
+    id        BIGSERIAL PRIMARY KEY,        -- Auto-incrementing primary key
+    username  VARCHAR(255) UNIQUE NOT NULL, -- Unique username
+    password  VARCHAR(100)        NOT NULL,
+    enabled   BOOLEAN             NOT NULL,
+    authority VARCHAR(20)         NOT NULL,
+    role      VARCHAR(20)         NOT NULL
+
 );
 
 CREATE TABLE authorities

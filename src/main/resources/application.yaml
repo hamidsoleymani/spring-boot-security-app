@@ -7,7 +7,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/security_app
+    url: jdbc:postgresql://localhost:5432/security_app_db
     username: postgres
     password: sec
     driver-class-name: org.postgresql.Driver
@@ -21,7 +21,7 @@ spring:
   flyway:
     enabled: true  # Enable Flyway migration on startup
     locations: classpath:db/migration  # Path to your migration scripts
-    baseline-on-migrate: true
+    baseline-on-migrate: false
     validate-on-migrate: false
     clean-disabled: false
     schemas: security_app_schema

@@ -1,14 +1,14 @@
 services:
   postgres:
     image: postgres:15
-    container_name: postgres_db_security
+    container_name: postgres_db_security_container_name
     environment:
-      POSTGRES_DB:  security_app
+      POSTGRES_DB:  security_app_db
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: sec
     volumes:
-      - ./postgres_data:/var/lib/postgresql/data
-      - ./init.sql:/docker-entrypoint-initdb.d/01-init.sql
+      - ./security_app_db_local:/var/lib/postgresql/data
+  #   - ./init.sql:/docker-entrypoint-initdb.d/01-init.sql
     ports:
       - "5432:5432"
 
@@ -18,7 +18,7 @@ services:
     depends_on:
       - postgres
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/security_app
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/security_app_db
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: sec
       SPRING_JPA_HIBERNATE_DDL_AUTO: none
