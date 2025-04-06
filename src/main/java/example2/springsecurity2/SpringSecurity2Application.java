@@ -28,6 +28,6 @@ public class SpringSecurity2Application implements CommandLineRunner {
         user.setPassword(passwordEncoder.encode("ppp"));
         user.setRole("ADMIN");
         user.setAuthority(user.getRole());
-      //  userRepository.save(user);
+        //userRepository.save(user);
     }
 }
