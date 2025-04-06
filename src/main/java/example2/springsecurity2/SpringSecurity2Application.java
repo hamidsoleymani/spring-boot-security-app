@@ -24,10 +24,10 @@ public class SpringSecurity2Application implements CommandLineRunner {
     @Override
     public void run(String... args){
         User user = new User();
-        user.setUsername("admin1");
+        user.setUsername("admin2");
         user.setPassword(passwordEncoder.encode("ppp"));
         user.setRole("ADMIN");
         user.setAuthority(user.getRole());
-        userRepository.save(user);
+      //  userRepository.save(user);
     }
 }
