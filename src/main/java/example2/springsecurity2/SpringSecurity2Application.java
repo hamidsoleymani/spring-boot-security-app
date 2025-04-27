@@ -26,8 +26,8 @@ public class SpringSecurity2Application implements CommandLineRunner {
         User user = new User();
         user.setUsername("admin2");
         user.setPassword(passwordEncoder.encode("ppp"));
-        user.setRole("ADMIN");
+        user.setRole("WRITE");
         user.setAuthority(user.getRole());
-        //userRepository.save(user);
+       // userRepository.save(user);
     }
 }

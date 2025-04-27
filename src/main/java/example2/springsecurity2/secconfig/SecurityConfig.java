@@ -15,12 +15,17 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/public/**").permitAll() // Public endpoints
-                        .anyRequest().authenticated()              // All other endpoints require authentication
+        http.authorizeHttpRequests(
+                        authorize -> authorize
+                                .requestMatchers("/public/**")
+                                .permitAll() // Public endpoints
+                                .anyRequest()
+                                .hasAuthority("WRITE")
+                                           // All other endpoints require authentication
+
                 )
                 .formLogin(form -> form
-                       // .loginPage("/login") // Custom login page (optional)
+                        // .loginPage("/login") // Custom login page (optional)
                         .permitAll()
                 )
                 .logout(logout -> logout.permitAll());
